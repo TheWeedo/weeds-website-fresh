@@ -241,5 +241,22 @@ footer {
     </a>
 </p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if(window.location.search.includes('access=true')) {
+        // show everything, do nothing
+    } else {
+        document.querySelectorAll('.product').forEach(product => {
+            product.querySelectorAll('select, label, input[type=number], button').forEach(el => el.style.display = 'none');
+            let loginButton = document.createElement('button');
+            loginButton.innerText = 'Log in for more details';
+            loginButton.onclick = function() { location.href = 'login.html?redirect=flower'; };
+            loginButton.style.marginTop = '10px';
+            product.appendChild(loginButton);
+        });
+    }
+});
+</script>
 </body>
 </html>
