@@ -287,22 +287,24 @@
 
 
 
+
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    if(window.location.search.includes('access=true')) {
+    if(sessionStorage.getItem('weedoAccess') === 'true') {
         // show everything, do nothing
     } else {
-        // hide selects, quantity label/input, and Add to Cart button inside each product
         document.querySelectorAll('.product').forEach(product => {
             product.querySelectorAll('select, label, input[type=number], button').forEach(el => el.style.display = 'none');
             let loginButton = document.createElement('button');
             loginButton.innerText = 'Log in for more details';
-            loginButton.onclick = function() { location.href = 'login.html'; };
+            loginButton.onclick = function() { location.href = 'login.html?redirect=edibles'; };
             loginButton.style.marginTop = '10px';
             product.appendChild(loginButton);
         });
     }
 });
 </script>
+
 </body>
 </html>
