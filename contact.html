@@ -128,17 +128,35 @@ button { padding: 0.75rem 2rem; background-color: #b5f7c3; color: #1a3d2f; font-
    </div>
   </section>
   <section id="contact">
-   <h2>
-    Contact Us
-   </h2>
-   <form action="#" method="post">
-    <input name="name" placeholder="Your Name" required="" type="text"/>
-    <input name="email" placeholder="Your Email" required="" type="email"/>
-    <textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
-    <button type="submit">
-     Send Message
-    </button>
-   </form>
+
+<h2>Contact Us</h2>
+<form id="contactForm">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+<div id="successMessage" style="display:none; color:#b5f7c3; margin-top: 2rem; font-size: 1.2rem;">
+  Thanks! Your message was sent successfully.
+</div>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+  fetch("form-handler.php", {
+    method: "POST",
+    body: formData
+  }).then(response => {
+    if (response.ok) {
+      this.style.display = "none";
+      document.getElementById("successMessage").style.display = "block";
+    } else {
+      alert("There was an error sending your message. Please try again later.");
+    }
+  });
+});
+</script>
+
   </section>
   <script src="cart.js">
   </script>
