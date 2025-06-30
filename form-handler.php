@@ -14,7 +14,7 @@ try {
     $mail->Host       = 'wellnessbyweedo.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'info@wellnessbyweedo.com';
-    $mail->Password   = 'your_password_here';
+    $mail->Password   = '14Rbusiness2Thrive!';
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
 
