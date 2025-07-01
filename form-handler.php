@@ -27,7 +27,9 @@ try {
 
     $mail->send();
     http_response_code(200);
+    echo "Message sent successfully.";
 } catch (Exception $e) {
     http_response_code(500);
+    echo "Mailer Error: {$mail->ErrorInfo}";
 }
 ?>

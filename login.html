@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html>
- <head>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta charset="utf-8"/>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
+<head>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
    About Us - Wellness By Weedo
   </title>
-  <style>
+<style>
    body { margin: 0; font-family: sans-serif; background-color: #1a3d2f; color: #f0f0e5; }
 header { background-color: #2e5939; padding: 2rem; text-align: center; }
 .logo img { height: 80px; filter: drop-shadow(0 0 30px #b5f7c3); }
@@ -18,7 +19,7 @@ nav a { color: #f0f0e5; margin: 0 1rem; text-decoration: none; font-weight: bold
 section { padding: 3rem 2rem; text-align: center; }
 footer { background-color: #2e5939; text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #ccc; }
   </style>
-  <style>
+<style>
    body {
     margin: 0;
     padding: 0;
@@ -59,49 +60,48 @@ footer { background-color: #2e5939; text-align: center; padding: 2rem 1rem; font
     }
   }
   </style>
- </head>
- <body>
-  <header>
-   <div class="logo">
-    <img alt="Logo" src="weedo-logo.png"/>
-   </div>
-   <nav>
-    <a href="home.html">
+</head>
+<body>
+<header>
+<div class="logo">
+<img alt="Logo" src="weedo-logo.png"/>
+</div>
+<nav>
+<a href="home.html">
      Home
     </a>
-    <a href="shop.html">
+<a href="shop.html">
      Shop
     </a>
-    <a href="about.html">
+<a href="about.html">
      About
     </a>
-    <a href="contact.html">
+<a href="contact.html">
      Contact
     </a>
-    <a href="blog.html">
+<a href="blog.html">
      Blog
     </a>
-    <a href="cart.html">
+<a href="cart.html">
      Cart (
      <span id="cart-count">
       0
      </span>
      )
     </a>
-   </nav>
-  </header>
-  <section class="hero">
-<div style="max-width: 500px; margin: 4rem auto; background-color: rgba(46,89,57,0.85); padding: 2rem; border-radius: 12px; text-align: center;">
-    <h1>Login</h1>
-    <input type="text" id="username" placeholder="Username" style="padding:8px; width:80%; margin-bottom:1rem;"><br/>
-    <input type="password" id="password" placeholder="Password" style="padding:8px; width:80%; margin-bottom:1rem;"><br/>
-    <button onclick="checkLogin()" class="add-to-cart-btn" style="width:60%;">Login</button>
+</nav>
+</header>
+<section class="hero">
+<div style="max-width: 500px; margin: 4rem auto; background-color: rgba(46,89,57,0.85); padding: 2rem; border-radius: 12px; text-align: center;"><h1>Login</h1>
+<form onsubmit="checkLogin(); return false;" style="display:flex; flex-direction:column; align-items:center;">
+<input id="username" placeholder="Username" style="padding:8px; width:80%; margin-bottom:1rem;" type="text"/>
+<input id="password" placeholder="Password" style="padding:8px; width:80%; margin-bottom:1rem;" type="password"/>
+<button class="add-to-cart-btn" style="width:60%;" type="submit">Login</button>
+</form>
 </div>
 </section>
-  <script src="cart.js">
-  </script>
- 
-
+<script src="cart.js">
+</script>
 <script>
 function checkLogin() {
     var user = document.getElementById('username').value;
@@ -116,9 +116,6 @@ function checkLogin() {
     }
 }
 </script>
-
-
-
 <script>
 function checkLogin() {
     var user = document.getElementById('username').value;
@@ -133,22 +130,19 @@ function checkLogin() {
     }
 }
 </script>
-
-
 </body>
-
 </html>
 <script src="cart.js">
 </script>
 <footer style="margin-top: 4rem; padding: 2rem; background-color: #2e5939; color: white; text-align: center;">
- <p>
-  <strong>
+<p>
+<strong>
    Wellness By Weedo
   </strong>
   - Natural Healing, Elevated Living.
  </p>
- <nav style="margin: 0.5rem 0;">
-  <a href="home.html" style="color: #b8e8c6;">
+<nav style="margin: 0.5rem 0;">
+<a href="home.html" style="color: #b8e8c6;">
    Home
   </a>
   |
@@ -163,18 +157,18 @@ function checkLogin() {
   <a href="contact.html" style="color: #b8e8c6;">
    Contact
   </a>
-  <a href="blog.html" style="color: #b8e8c6;">
+<a href="blog.html" style="color: #b8e8c6;">
    Blog
   </a>
   |
  </nav>
- <p style="margin: 0.5rem 0;">
-  &copy; 2025 Wellness By Weedo. All rights reserved.
+<p style="margin: 0.5rem 0;">
+  © 2025 Wellness By Weedo. All rights reserved.
  </p>
- <p>
+<p>
   Email:
   <a href="mailto:info@wellnessbyweedo.com" style="color: #b8e8c6;">
    info@wellnessbyweedo.com
   </a>
- </p>
+</p>
 </footer>
