@@ -1,35 +1,32 @@
-
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["name"]);
+    $address = htmlspecialchars($_POST["address"]);
+    $phone = htmlspecialchars($_POST["phone"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $instructions = htmlspecialchars($_POST["instructions"]);
+    $cart = htmlspecialchars($_POST["cart"]);
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+    $to = "info@wellnessbyweedo.com";
+    $subject = "New Order from $name";
 
-$mail = new PHPMailer(true);
+    $message = "You have received a new order from your website.\n\n";
+    $message .= "Name: $name\n";
+    $message .= "Address: $address\n";
+    $message .= "Phone: $phone\n";
+    $message .= "Email: $email\n";
+    $message .= "Instructions: $instructions\n\n";
+    $message .= "Order Summary:\n$cart\n";
 
-try {
-    $mail->isSMTP();
-    $mail->Host       = 'wellnessbyweedo.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'info@wellnessbyweedo.com';
-    $mail->Password   = '14Rbusiness2Thrive!';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port       = 465;
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
 
-    $mail->setFrom('info@wellnessbyweedo.com', 'Wellness By Weedo');
-    $mail->addAddress('info@wellnessbyweedo.com');
+    mail($to, $subject, $message, $headers);
 
-    $mail->isHTML(true);
-    $mail->Subject = 'New Contact Form Submission';
-    $mail->Body    = "Name: {$_POST['name']}<br>Email: {$_POST['email']}<br>Message:<br>{$_POST['message']}";
-
-    $mail->send();
-    http_response_code(200);
-    echo "Message sent successfully.";
-} catch (Exception $e) {
-    http_response_code(500);
-    echo "Mailer Error: {$mail->ErrorInfo}";
+    // Redirect to thank you page
+    header("Location: thank-you.html");
+    exit();
+} else {
+    echo "There was a problem processing your order.";
 }
 ?>
