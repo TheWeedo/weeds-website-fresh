@@ -135,17 +135,34 @@
 </tfoot>
 </table>
 </section>
+<section style="max-width:600px; margin:2rem auto;">
+<h3>Customer Information</h3>
+<form action="form-handler.php" id="order-form" method="POST">
+<label for="name">Name:</label>
+<input id="name" name="name" required="" style="width:100%;padding:0.5rem;margin-bottom:1rem;" type="text"/>
+<label for="address">Shipping Address:</label>
+<textarea id="address" name="address" required="" rows="3" style="width:100%;padding:0.5rem;margin-bottom:1rem;"></textarea>
+<label for="phone">Phone Number:</label>
+<input id="phone" name="phone" required="" style="width:100%;padding:0.5rem;margin-bottom:1rem;" type="tel"/>
+<label for="email">Email:</label>
+<input id="email" name="email" required="" style="width:100%;padding:0.5rem;margin-bottom:1rem;" type="email"/>
+<label for="instructions">Special Instructions:</label>
+<textarea id="instructions" name="instructions" rows="3" style="width:100%;padding:0.5rem;margin-bottom:1rem;"></textarea>
+<button class="btn green" style="width:100%;padding:1rem;font-size:1.2rem;" type="submit">Place Order</button>
+</form>
+</section>
+
 <script src="cart.js">
 </script>
 <footer style="margin-top: 4rem; padding: 2rem; background-color: #2e5939; color: white; text-align: center;">
-   <p>
-    <strong>
+<p>
+<strong>
      Wellness By Weedo
     </strong>
     - Natural Healing, Elevated Living.
    </p>
-   <nav style="margin: 0.5rem 0;">
-    <a href="home.html" style="color: #b8e8c6;">
+<nav style="margin: 0.5rem 0;">
+<a href="home.html" style="color: #b8e8c6;">
      Home
     </a>
     |
@@ -163,17 +180,17 @@
     <a href="blog.html" style="color: #b8e8c6;">
      Blog
     </a>
-   </nav>
-   <p style="margin: 0.5rem 0;">
-    &copy; 2025 Wellness By Weedo. All rights reserved.
+</nav>
+<p style="margin: 0.5rem 0;">
+    © 2025 Wellness By Weedo. All rights reserved.
    </p>
-   <p>
+<p>
     Email:
     <a href="mailto:info@wellnessbyweedo.com" style="color: #b8e8c6;">
      info@wellnessbyweedo.com
     </a>
-   </p>
-  </footer>
+</p>
+</footer>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       updateCartCount();
