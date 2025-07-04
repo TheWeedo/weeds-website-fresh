@@ -1,12 +1,12 @@
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(item, variant, price) {
+function addToCart(item, variant, price, qty = 1) {
     const existingItem = cart.find(i => i.item === item && i.variant === variant);
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += qty;
     } else {
-        cart.push({ item, variant, price, quantity: 1 });
+        cart.push({ item, variant, price, quantity: qty });
     }
     saveCart();
     updateCartCount();

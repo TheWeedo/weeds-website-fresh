@@ -273,27 +273,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.product').forEach(productDiv => {
-        const button = productDiv.querySelector('.add-to-cart-btn');
-        if (!button) return;
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.product').forEach(productDiv => {
+            const button = productDiv.querySelector('.add-to-cart-btn');
+            if (!button) return;
 
-        button.addEventListener('click', () => {
-            let productName = productDiv.querySelector('h3').innerText.trim();
-            let variant = productDiv.querySelector('select') ? productDiv.querySelector('select').value : "Standard";
-            let qtyInput = productDiv.querySelector('input[type=number]');
-            let quantity = qtyInput ? parseInt(qtyInput.value) : 1;
-            let priceText = variant.match(/\$([0-9]+)/);
-            let price = priceText ? parseFloat(priceText[1]) : 5;
+            button.addEventListener('click', () => {
+                let productName = productDiv.querySelector('h3')?.innerText.trim() || "Unknown Product";
+                let select = productDiv.querySelector('select');
+                let variant = select ? select.value : "Standard";
+                let qtyInput = productDiv.querySelector('input[type=number]');
+                let quantity = qtyInput ? parseInt(qtyInput.value) : 1;
 
-            for (let i = 0; i < quantity; i++) {
-                addToCart(productName, variant, price);
-            }
-            alert(`Added ${quantity} x ${productName} (${variant}) to cart.`);
+                let price = 5; // default fallback
+                if (select) {
+                    let selectedOption = select.options[select.selectedIndex];
+                    let priceMatch = selectedOption.text.match(/\$([0-9]+)/);
+                    if (priceMatch) {
+                        price = parseFloat(priceMatch[1]);
+                    } else if (select.dataset.price) {
+                        price = parseFloat(select.dataset.price);
+                    } else if (selectedOption.dataset.price) {
+                        price = parseFloat(selectedOption.dataset.price);
+                    }
+                }
+
+                addToCart(productName, variant, price, quantity);
+                alert(`Added ${quantity} x ${productName} (${variant}) at $${price} each to cart.`);
+            });
         });
     });
-});
-</script>
+    </script>
 </body>
 </html>
