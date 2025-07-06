@@ -3,35 +3,35 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Cart | Wellness By Weedo</title>
 <style>
-   body { margin: 0; font-family: sans-serif; background-color: #1a3d2f; color: #f0f0e5; }
-   header { background-color: #2e5939; padding: 2rem; text-align: center; }
-   nav a { color: #f0f0e5; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-   section { padding: 2rem; }
-   table { width: 100%; max-width: 800px; margin: auto; border-collapse: collapse; }
-   th, td { border: 1px solid #f0f0e5; padding: 0.5rem; text-align: center; }
-   th { background-color: #2e5939; }
-   td { background-color: #3a6b4e; }
-   .total { font-weight: bold; }
-   footer { text-align: center; padding: 1rem; background-color: #2e5939; color: #f0f0e5; position: relative; bottom: 0; width: 100%; }
-   button { padding: 0.5rem 1rem; border: none; border-radius: 8px; background-color: #f0f0e5; color: #1a3d2f; cursor: pointer; }
-   @media (max-width: 768px) {
-     nav, .nav, .menu { flex-direction: column !important; }
-     .product-grid, .grid, .card-container {
-       display: grid !important; grid-template-columns: 1fr !important; gap: 1rem;
-     }
-     .button, button {
-       width: 100%; font-size: 1.1rem; padding: 1rem;
-     }
-     header, footer { text-align: center; }
-     table {
-       display: block;
-       overflow-x: auto;
-       white-space: nowrap;
-     }
-   }
+  body { margin: 0; font-family: sans-serif; background-color: #1a3d2f; color: #f0f0e5; }
+  header { background-color: #2e5939; padding: 2rem; text-align: center; }
+  nav a { color: #f0f0e5; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+  section { padding: 2rem; }
+  table { width: 100%; max-width: 800px; margin: auto; border-collapse: collapse; }
+  th, td { border: 1px solid #f0f0e5; padding: 0.5rem; text-align: center; }
+  th { background-color: #2e5939; }
+  td { background-color: #3a6b4e; }
+  .total { font-weight: bold; }
+  footer { text-align: center; padding: 1rem; background-color: #2e5939; color: #f0f0e5; position: relative; bottom: 0; width: 100%; }
+  button { padding: 0.5rem 1rem; border: none; border-radius: 8px; background-color: #f0f0e5; color: #1a3d2f; cursor: pointer; }
+
+  @media (max-width: 768px) {
+    nav, .nav, .menu { flex-direction: column !important; }
+    .product-grid, .grid, .card-container {
+      display: grid !important; grid-template-columns: 1fr !important; gap: 1rem;
+    }
+    .button, button {
+      width: 100%; font-size: 1.1rem; padding: 1rem;
+    }
+    header, footer { text-align: center; }
+    table, th, td {
+      font-size: 0.8rem;
+      padding: 0.3rem;
+    }
+  }
 </style>
 </head>
 <body>
@@ -97,10 +97,10 @@
 <p>Email: <a href="mailto:info@wellnessbyweedo.com" style="color: #b8e8c6;">info@wellnessbyweedo.com</a></p>
 </footer>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      updateCartCount();
-      renderCart();
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderCart();
+});
 </script>
 </body>
 </html>
